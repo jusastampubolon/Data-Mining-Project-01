@@ -1,1 +1,9 @@
 https://drive.google.com/file/d/1TNmRdRtLYItC-5O7Atr1MVubJBCdLyZb/view?usp=drive_link
+
+dataset yang dibuat dari roboflow
+
+from roboflow import Roboflow
+rf = Roboflow(api_key="5zCVxWKyvAR6oL372iVO")
+project = rf.workspace("dami-gacor").project("dami-gacor")
+version = project.version(2)
+dataset = version.download("tensorflow")
