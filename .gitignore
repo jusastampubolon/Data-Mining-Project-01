@@ -1,0 +1,3 @@
+ECHO is on.
+# Mengabaikan file _pywrap_tensorflow_internal.pyd di semua folder
+**/_pywrap_tensorflow_internal.pyd

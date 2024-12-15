@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klasifikasi Kubis</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="contact-container">
+        <div class="contact-form">
+            <div class="contact-image">
+                <div class="circle">
+                    <img src="{{ url_for('static', filename='Sehat.jpeg') }}" alt="Kubis Sehat">
+                </div>
+            </div>
+            <form id="uploadForm">
+                <h3>Klasifikasi Kubis</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="imageUpload">Pilih Gambar:</label>
+                            <input type="file" class="form-control-file" id="imageUpload" name="imageUpload" accept="image/*" required>
+                        </div>
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-primary" id="uploadButton">Unggah Gambar</button>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h3>Hasil Klasifikasi</h3>
+                        <div id="classificationResult">
+                            <!-- Hasil klasifikasi akan tampil di sini -->
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('uploadForm').addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const formData = new FormData();
+            const imageFile = document.getElementById('imageUpload').files[0];
+            formData.append('imageUpload', imageFile);
+
+            const response = await fetch('/predict', {
+                method: 'POST',
+                body: formData,
+            });
+
+            const result = await response.json();
+            const resultDiv = document.getElementById('classificationResult');
+            if (response.ok) {
+                resultDiv.textContent = `Prediksi: ${result.prediction}`;
+                resultDiv.style.color = 'green';
+            } else {
+                resultDiv.textContent = `Error: ${result.error}`;
+                resultDiv.style.color = 'red';
+            }
+        });
+    </script>
+</body>
+</html>

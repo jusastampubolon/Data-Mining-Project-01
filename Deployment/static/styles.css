@@ -1,0 +1,142 @@
+/* Global styles */
+body {
+    background: linear-gradient(to right, #00c6ff, #0062cc);
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+/* Container for the contact form */
+.contact-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 20px;
+}
+
+/* Styling the contact form */
+.contact-form {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 900px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form:hover {
+    transform: scale(1.03);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Styling for the image with a circle */
+.contact-image {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.contact-image .circle {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    background: #ffffff; /* Lingkaran putih */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    margin: 0 auto;
+}
+
+.contact-image img {
+    width: 60%;
+    z-index: 2;
+}
+
+/* Title styling */
+.contact-form h3 {
+    text-align: center;
+    color: #0062cc;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+/* Form group styles */
+.contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+.contact-form .form-control {
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+}
+
+.contact-form .form-control:focus {
+    border-color: #0062cc;
+    box-shadow: 0 0 5px rgba(0, 98, 204, 0.5);
+}
+
+/* Button styling */
+.contact-form .btn {
+    width: 100%;
+    border-radius: 10px;
+    padding: 15px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #0062cc;
+    border: none;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form .btn:hover {
+    background-color: #004bb5;
+}
+
+/* Classification result styling */
+#classificationResult {
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    color: #333;
+    font-size: 18px;
+    text-align: center;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+    .contact-form {
+        width: 100%;
+        padding: 25px;
+    }
+
+    .contact-image .circle {
+        width: 80px;
+        height: 80px;
+    }
+
+    .contact-image img {
+        width: 50%;
+    }
+
+    .contact-form h3 {
+        font-size: 24px;
+    }
+
+    .contact-form .form-control {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .contact-form .btn {
+        font-size: 14px;
+        padding: 12px;
+    }
+}
